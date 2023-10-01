@@ -12,8 +12,7 @@ model = FaceCNN(nb_classes)
 state_dict  = torch.load('pytorch_weights/best weights.pth',map_location=torch.device('cpu'))
 model.load_state_dict(state_dict)
 
-#haar_file=cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'
-haar_file = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+haar_file=cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'
 face_cascade=cv2.CascadeClassifier(haar_file)
 
 # main function which does the prediction and bounding box part
