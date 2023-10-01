@@ -1,0 +1,5 @@
+trained_model/
+dataset/
+env/
+.ipynb_checkpoints/
+__pycache__/
