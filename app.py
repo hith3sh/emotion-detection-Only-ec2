@@ -4,10 +4,6 @@ from predict import detect_emotions
 import os
 from PIL import Image
 import cv2
-import logging
-
-# Set up logging
-logging.basicConfig(filename='app.log', level=logging.INFO)
 
 app = Flask(__name__)
 @app.route('/')
@@ -32,13 +28,10 @@ def upload_file():
             emotion_img = cv2.cvtColor(emotion_img, cv2.COLOR_BGR2RGB)
             emotion_img = Image.fromarray(emotion_img)
             emotion_img.save(output_path)
-            # Log success message
-            logging.info(f"File {uploaded_file.filename} processed successfully")
-
-        except Exception as e:
-            # Log error message
-            logging.error(f"An error occurred while processing file {uploaded_file.filename}: {e}")
             
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
         # Pass the filename of the processed image to the index.html file
         return render_template('index.html', image=uploaded_file.filename)
 
