@@ -11,7 +11,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/upload', methods=['POST'])
+@app.route('/upload', methods=['POST','GET'])
 def upload_file():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '':
